@@ -1,38 +1,27 @@
 package edu.dio.lndev.bootcamp.models;
 
+import edu.dio.lndev.bootcamp.abstractions.Atividade;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class Mentoria {
+public class Mentoria extends Atividade {
 
-    private String tituloMentoria;
-    private String descricaoMentoria;
     private LocalDate dataMentoria;
 
     public Mentoria() {
     }
 
-    public Mentoria(String tituloMentoria, String descricaoMentoria, LocalDate dataMentoria) {
-        this.tituloMentoria = tituloMentoria;
-        this.descricaoMentoria = descricaoMentoria;
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO + 20d;
+    }
+
+    public Mentoria(String titulo, String descricao, LocalDate dataMentoria) {
+        super.setTitulo(titulo);
+        super.setDescricao(descricao);
         this.dataMentoria = dataMentoria;
-    }
-
-    public String getTituloMentoria() {
-        return tituloMentoria;
-    }
-
-    public void setTituloMentoria(String tituloMentoria) {
-        this.tituloMentoria = tituloMentoria;
-    }
-
-    public String getDescricaoMentoria() {
-        return descricaoMentoria;
-    }
-
-    public void setDescricaoMentoria(String descricaoMentoria) {
-        this.descricaoMentoria = descricaoMentoria;
     }
 
     public LocalDate getDataMentoria() {
@@ -43,25 +32,14 @@ public class Mentoria {
         this.dataMentoria = dataMentoria;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Mentoria mentoria = (Mentoria) o;
-        return Objects.equals(tituloMentoria, mentoria.tituloMentoria);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tituloMentoria);
-    }
 
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return "\nMentoria {" +
-                "titulo = '" + tituloMentoria + '\'' +
-                ", \ndescrição = '" + descricaoMentoria + '\'' +
+                "titulo = '" + super.getTitulo() + '\'' +
+                ", \ndescrição = '" + super.getDescricao() + '\'' +
                 ", \ndata = " + dataMentoria.format(formatter) +
                 '}';
     }

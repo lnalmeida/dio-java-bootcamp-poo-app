@@ -1,27 +1,18 @@
 package edu.dio.lndev.bootcamp.models;
 
-import java.util.Objects;
+import edu.dio.lndev.bootcamp.abstractions.Atividade;
 
-public class Curso {
-    private String tituloCurso;
-    private String descricaoCurso;
+public class Curso extends Atividade {
+
     private int cargaHorariaCurso;
 
     public Curso() {
     }
 
-    public Curso(String tituloCurso, String descricaoCurso, int cargaHorariaCurso) {
+    public Curso(String titulo, String descricao, int cargaHorariaCurso) {
         this.cargaHorariaCurso = cargaHorariaCurso;
-        this.tituloCurso = tituloCurso;
-        this.descricaoCurso = descricaoCurso;
-    }
-
-    public String getTituloCurso() {
-        return tituloCurso;
-    }
-
-    public void setTituloCurso(String tituloCurso) {
-        this.tituloCurso = tituloCurso;
+        super.setTitulo(titulo);
+        super.setDescricao(descricao);
     }
 
     public int getCargaHorariaCurso() {
@@ -32,32 +23,16 @@ public class Curso {
         this.cargaHorariaCurso = cargaHorariaCurso;
     }
 
-    public String getDescricaoCurso() {
-        return descricaoCurso;
-    }
-
-    public void setDescricaoCurso(String descricaoCurso) {
-        this.descricaoCurso = descricaoCurso;
-    }
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Curso curso = (Curso) o;
-        return Objects.equals(tituloCurso, curso.tituloCurso);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(tituloCurso);
+    public double calcularXp() {
+        return XP_PADRAO + 20d;
     }
 
     @Override
     public String toString() {
         return "\nCurso {" +
-                "titulo = '" + tituloCurso + '\'' +
-                ", \ndescrição = '" + descricaoCurso + '\'' +
+                "titulo = '" + super.getTitulo() + '\'' +
+                ", \ndescrição = '" + super.getDescricao() + '\'' +
                 ", \ncarga horária = " + cargaHorariaCurso +
                 '}';
     }
