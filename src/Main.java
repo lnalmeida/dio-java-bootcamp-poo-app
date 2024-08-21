@@ -37,19 +37,27 @@ public class Main {
         bootcamp2.getAtividades().add(mentoria2);
 
         Dev dev1 = new Dev("Luiz");
-        System.out.println("Cursos do Luiz: ");
-        dev1.exibirCursos();
+        System.out.println(String.format("Cursos do %s : ", dev1.getNome()));
+        dev1.exibirAtividadesInscritas();
         Dev dev2 = new Dev("José");
-        System.out.println("Cursos do josé: ");
-        dev2.exibirCursos();
+        System.out.println(String.format("Cursos do %s : ", dev2.getNome()));
+        dev2.exibirAtividadesInscritas();
 
         dev1.inscreverBootcamp(bootcamp1);
         dev2.inscreverBootcamp(bootcamp2);
 
-        System.out.println("Cursos do Luiz: ");
-        dev1.exibirCursos();
-        System.out.println("Cursos do josé: ");
-        dev2.exibirCursos();
+        System.out.println(String.format("Cursos no qual %s está inscrito: ", dev1.getNome()));
+        dev1.exibirAtividadesInscritas();
+        dev1.progredir(20);
+        System.out.println(String.format("Cursos concluídos pelo %s : ", dev1.getNome()));
+        dev1.exibirAtividadesConcluidas();
+        System.out.println(String.format("XP total do %s: %.1f", dev1.getNome(), dev1.calcularTotalXp()));
 
+        System.out.println(String.format("Cursos no qual %s está inscrito: ", dev2.getNome()));
+        dev2.exibirAtividadesInscritas();
+        dev2.progredir(20);
+        System.out.println(String.format("Cursos concluídos pelo %s : ", dev2.getNome()));
+        dev2.exibirAtividadesConcluidas();
+        System.out.println(String.format("XP total do %s: %.1f", dev2.getNome(), dev2.calcularTotalXp()));
     }
 }

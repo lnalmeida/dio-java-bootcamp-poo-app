@@ -30,8 +30,8 @@ public class Curso extends Atividade {
 
     @Override
     public String toString() {
-        return "\nCurso {" +
-                "titulo = '" + super.getTitulo() + '\'' +
+        return "\nCurso: " +
+                "\ntitulo = '" + super.getTitulo() + '\'' +
                 ", \ndescrição = '" + super.getDescricao() + '\'' +
                 ", \ncarga horária = " + cargaHorariaCurso +
                 '}';

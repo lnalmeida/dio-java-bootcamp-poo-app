@@ -38,8 +38,12 @@ public class Dev {
                 .sum();
     }
 
-    public void exibirCursos() {
+    public void exibirAtividadesInscritas() {
         System.out.println(Arrays.toString(this.atividadesInscritas.toArray()) + "\n");
+    }
+
+    public void exibirAtividadesConcluidas() {
+        System.out.println(Arrays.toString(this.atividadesConcluidas.toArray()) + "\n");
     }
 
     public String getNome() {

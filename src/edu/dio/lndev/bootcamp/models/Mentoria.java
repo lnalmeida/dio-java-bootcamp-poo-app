@@ -4,7 +4,6 @@ import edu.dio.lndev.bootcamp.abstractions.Atividade;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 public class Mentoria extends Atividade {
 
@@ -37,8 +36,8 @@ public class Mentoria extends Atividade {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "\nMentoria {" +
-                "titulo = '" + super.getTitulo() + '\'' +
+        return "\nMentoria: " +
+                "\ntitulo = '" + super.getTitulo() + '\'' +
                 ", \ndescrição = '" + super.getDescricao() + '\'' +
                 ", \ndata = " + dataMentoria.format(formatter) +
                 '}';
